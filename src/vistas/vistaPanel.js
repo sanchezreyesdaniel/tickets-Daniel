@@ -31,7 +31,7 @@ export const vistaPanel = {
       </tbody>
     </table>
     <h2 class="mt-5">Tickets resueltos</h2>
-    <table class="table mt-4">
+    <table id="resueltos" class="table mt-4">
       <thead>
         <tr>
           <th>Código</th>
@@ -189,7 +189,20 @@ export const vistaPanel = {
 
 
       
-
+      const rolUsuario = document.querySelector('#nombreUsuario').dataset.rol;
+        if (rolUsuario === 'profesor') {
+            console.log('El usuario es profesor');
+            document.querySelectorAll('.eliminar').forEach(element => element.classList.add('d-none'));
+            // Aquí puedes agregar el código específico que deseas ejecutar para el rol de profesor
+            
+        }
+        if (rolUsuario === 'alumno') {
+          console.log('El usuario es alumno');
+          document.querySelectorAll('.resolver').forEach(element => element.classList.add('d-none'));
+            document.querySelectorAll('.eliminar').forEach(element => element.classList.add('d-none'));
+            document.querySelector('#resueltos').classList.add('d-none');
+          // Aquí puedes agregar el código específico que deseas ejecutar para el rol de profesor
+      }
 
 
 
